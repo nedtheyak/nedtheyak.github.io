@@ -1,4 +1,5 @@
 var newUrl = "";
+var loadPage = true;
 
 function redirectUsing(given) {
     switch (given) {
@@ -10,9 +11,7 @@ function redirectUsing(given) {
             break;
     }
     if (newUrl != "") {
-        window.open(newUrl, '_self');
-    } else {
-        // load page
-        document.getElementById('bod').innerHTML = '<h1>Get 404d</h1><br /><p>Yeah, you should probably just <a href="http://kydn.me">go home</a></p>';
+        loadPage = false;
     }
+    return [loadPage, newUrl];
 }

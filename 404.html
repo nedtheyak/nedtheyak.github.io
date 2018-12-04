@@ -22,7 +22,15 @@ var curUrl = "";
 curUrl = window.location.href;
 curUrl = curUrl.replace("http://kydn.me/", "");
 
-redirectUsing(curUrl);
+var returnValues = [];
+
+returnValues = redirectUsing(curUrl);
+
+if (!returnValues[1]) {
+    window.open(returnValues[0], '_self');
+} else {
+    document.getElementById('bod').innerHTML = '<h1>Get 404d</h1><br /><p>Yeah, you should probably just <a href="http://kydn.me">go home</a></p>';
+}
 </script>
 
 </head>
