@@ -12,6 +12,10 @@ function redirectUsing(given) {
         case "m":
             newUrl = "http://magmablock.x10host.com";
             break;
+        case "h":
+        case "home":
+            newUrl = "http://kydn.me"
+            break;
         default:
             newUrl = "";
             break;
