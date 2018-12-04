@@ -13,5 +13,5 @@ function redirectUsing(given) {
     if (newUrl != "") {
         loadPage = false;
     }
-    return [loadPage, newUrl];
+    return ([loadPage, newUrl]);
 }
