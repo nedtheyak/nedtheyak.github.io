@@ -7,11 +7,11 @@ function redirectUsing(given) {
             newUrl = "http://kydn.me/slight";
             break;
         default:
-            // do nothing
+            newUrl = "";
             break;
     }
     if (newUrl != "") {
         loadPage = false;
     }
-    return (new Array([loadPage, newUrl]));
+    return (new Array([newUrl, loadPage]));
 }
