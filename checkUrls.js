@@ -9,6 +9,9 @@ function redirectUsing(given) {
         case "pm":
             newUrl = "http://prsa.me";
             break;
+        case "m":
+            newUrl = "http://magmablock.x10host.com";
+            break;
         default:
             newUrl = "";
             break;
