@@ -10,6 +10,7 @@ function redirectUsing(given) {
             // do nothing
             break;
     }
+    newUrl = `http://kydn.me/${newUrl}`;
     if (newUrl != "") {
         loadPage = false;
     }
