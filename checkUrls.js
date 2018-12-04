@@ -13,7 +13,7 @@ function redirectUsing(given) {
     if (newUrl != "") {
         loadPage = false;
     }
-    return ([loadPage, newUrl]);
     alert(loadPage);
     alert(newUrl);
+    return ([loadPage, newUrl]);
 }
