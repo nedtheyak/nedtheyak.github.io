@@ -15,5 +15,5 @@ function redirectUsing(given) {
     }
     alert(String(loadPage));
     alert(newUrl);
-    return ([loadPage, newUrl]);
+    return (new Array([loadPage, newUrl]));
 }
