@@ -4,7 +4,8 @@ var loadPage = true;
 function redirectUsing(given) {
     switch (given) {
         case "s":
-            newUrl = "http://kydn.me/slight";
+        case "slight":
+            newUrl = "http://magmablock.x10host.com/slight";
             break;
         case "pm":
             newUrl = "http://prsa.me";
