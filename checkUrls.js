@@ -1,3 +1,4 @@
+alert('hi');
 var newUrl = "";
 var loadPage = true;
 
