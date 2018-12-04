@@ -10,8 +10,6 @@ function redirectUsing(given) {
             newUrl = "";
             break;
     }
-    if (newUrl != "") {
-        loadPage = false;
-    }
-    return (new Array([newUrl, loadPage]));
+
+    return newUrl;
 }
