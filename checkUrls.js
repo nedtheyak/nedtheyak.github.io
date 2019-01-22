@@ -4,7 +4,8 @@ var loadPage = true;
 function redirectUsing(given) {
     switch (given) {
         case "s":
-            newUrl = "http://kydn.me/slight";
+        case "slight":
+            newUrl = "https://nedtheyak.itch.io/slight/";
             break;
         case "pm":
             newUrl = "http://prsa.me";
