@@ -56,7 +56,7 @@
             .card {
                 height: 60%;
                 width: 19.5%;
-                box-shadow: 1px 1px 2px;
+                box-shadow: 1px 1px 4px;
                 position: relative;
                 display: inline-block;
                 overflow: hidden;
@@ -73,11 +73,11 @@
 
             @keyframes cardHoverAnim {
                 0% {
-                    box-shadow: 1px 1px 2px;
+                    box-shadow: 1px 1px 4px;
                 }
 
                 100% {
-                    box-shadow: 1px 1px 8px;
+                    box-shadow: 1px 1px 15px;
                 }
             }
 
@@ -88,44 +88,85 @@
                 position: absolute;
                 top: 0%;
                 left: 0%;
-                background-size: 100% 100%;
+                background-color: rgba(0, 0, 0, 0.05);
+                background-repeat: repeat;
+            }
+
+            .cardTextContainer {
+                height: 25%;
+                width: 100%;
+                position: absolute;
+                top: 75%;
+                left: 0%;
+                background-color: rgba(255, 255, 255, 0.3);
             }
 
             .cardText {
-                height: 12.5%;
+                height: 50%;
                 width: 100%;
                 position: absolute;
-                top: 87.5%;
+                top: 50%;
                 left: 0%;
                 text-align: center;
             }
         </style>
+
+        <script>
+            var cardNumber = 0;
+            var newNumber = 0;
+            var cardsList = [];
+
+            function clickAction(card) {
+                if (card.innerHTML == cardsList[cardNumber].innerHTML) {
+                    cardsList[cardNumber].style.backgroundImage = "";
+                    while (newNumber == cardNumber) {
+                        newNumber = Math.floor(Math.random() * 4);
+                    }
+                    cardNumber = newNumber;
+                    cardsList[cardNumber].style.backgroundImage = "url('http://magmablock.x10host.com/nader/nader.gif')";
+                    cardsList = document.getElementsByClassName('card');
+                }
+            }
+
+            function loadScripts() {
+                cardsList = document.getElementsByClassName('card');
+                newNumber = Math.floor(Math.random() * 4);
+                cardNumber = newNumber;
+                cardsList[cardNumber].style.backgroundImage = "url('http://magmablock.x10host.com/nader/nader.gif')";
+                cardsList = document.getElementsByClassName('card');
+                for (i = 0; i < cardsList.length; i++) {
+                    cardsList[i].onclick = function (event) { clickAction(event.currentTarget) };
+                };
+            }
+        </script>
+
+
     </head>
-    <body>
+    <body onload="loadScripts()">
         <!-- Title bar -->
         <div class="logoContainer"><div class="logo">Kayden</div></div>
         
         <!-- Rest of the content of the page -->
         <div class="mainContent">
             <br />
-            <div class="card">
-                <div class="cardImage" style="background-image: url('slight_screenshot.png')"></div>
-                <div class="cardText">Programming</div>
+            <div class="card" style="background-color: red">
+                <div class="cardImage"></div>
+                <div class="cardTextContainer"><div class="cardText">Programming</div></div>
             </div>
 
-            <div class="card">
-                <img class="cardImage" src="" />
-                <div class="cardText">School</div>
+            <div class="card" style="background-color: cornflowerblue">
+                <div class="cardImage"></div>
+                <div class="cardTextContainer"><div class="cardText">Music</div></div>
             </div>
 
-            <div class="card">
-                <img class="cardImage" src="" />
-                <div class="cardText">Music</div>
+            <div class="card" style="background-color: blue">
+                <div class="cardImage"></div>
+                <div class="cardTextContainer"><div class="cardText">School</div></div>
             </div>
 
-            <div class="card">
-                <img class="cardImage" src="" />
-                <div class="cardText">Memes</div>
+            <div class="card" style="background-color: green">
+                <div class="cardImage"></div>
+                <div class="cardTextContainer"><div class="cardText">Memes</div></div>
             </div>
 
         </div>
