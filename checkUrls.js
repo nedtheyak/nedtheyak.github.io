@@ -17,6 +17,9 @@ function redirectUsing(given) {
         case "home":
             newUrl = "http://kydn.me"
             break;
+        case "calc":
+            newUrl = "https://kaydenlukeschmidt.wixsite.com/website"
+            break;
         default:
             newUrl = "";
             break;
