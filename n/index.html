@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- Coded lovingly from scratch by ur boi NedtheYak -->
+
+<title>o.o</title>
+
+<style>
+
+body {
+    background-image: url('nader.gif');
+    background-repeat: repeat;
+}
+
+</style>
+
+<script>
+var animBg = true;
+var multiplier = 4;
+var movVertInterval;
+var movHorInterval;
+var rotateInterval;
+var followInterval;
+
+
+function moveNader() {
+    movVertInterval = setInterval(function() {
+        if (topC >= 80) {
+            changeDirection("up");
+        } else if (topC <= 0) {
+            changeDirection("down");
+        }
+        if (goingDown) {
+            topC += (1 / multiplier);
+        } else {
+            topC -= (1 / multiplier);
+        }
+        nad.style.top = percenter(topC);
+    }, (40 * (1 / multiplier)));
+    movHorInterval = setInterval(function() {
+        if (rightC >= 90) {
+            changeDirection("left");
+        } else if (rightC <= 0) {
+            changeDirection("right");
+        }
+        if (goingRight) {
+            rightC += (1 / multiplier);
+        } else {
+            rightC -= (1 / multiplier);
+        }
+        nad.style.left = percenter(rightC);
+    }, ((screen.width / screen.height) * 40 * (1 / multiplier)));
+}
+
+function rotateNader() {
+    rotateInterval = setInterval(function() {
+        if (rotClock) {
+            rotC += 4 * (1 / multiplier);
+            if (rotC > 360) {
+                rotC -= 360;
+            }
+        } else {
+            rotC -= 4 * (1 / multiplier);
+            if (rotC < 0) {
+                rotC += 360;
+            }
+        }
+        nad.style.transform = "rotate(" + String(rotC) + "deg)";
+    }, 20 * (1 / multiplier));
+}
+
+function changeBg() {
+    if (animBg) {
+        document.getElementsByTagName('BODY')[0].style.backgroundImage = "url('nader.png')";
+        multiplier = 2;
+        alert('mobile mode enabled');
+    } else {
+        document.getElementsByTagName('BODY')[0].style.backgroundImage = "url('nader.gif')";
+        multiplier = 4;
+        alert('mobile mode disabled');
+    }
+    animBg = !animBg;
+    clearInterval(movVertInterval);
+    clearInterval(movHorInterval);
+    clearInterval(rotateInterval);
+    rotateNader();
+    moveNader();
+}
+
+
+function percenter(num) {
+    return String(num) + "%";
+}
+
+function changeDirection(newDir) {
+    switch (newDir) {
+        case "down":
+            rotClock = !goingRight;
+            goingDown = true;
+            break;
+        case "up":
+            rotClock = goingRight;
+            goingDown = false;
+            break;
+        case "right":
+            rotClock = goingDown;
+            goingRight = true;
+            break;
+        case "left":
+            rotClock = !goingDown;
+            goingRight = false;
+            break;
+        default:
+            // default
+            break;
+    }
+}
+
+var rightPx = 0;
+var topPx = 0;
+var isDragging = false;
+
+function dragging() {
+    clearInterval(movVertInterval);
+    clearInterval(movHorInterval);
+    document.getElementsByTagName('BODY')[0].onmousemove = function() {
+        rightPx = event.clientX - (nad.width / 2);
+        topPx = event.clientY - (nad.height / 2);
+        document.getElementById('naderElem').style.left = String(rightPx) + "px";
+        document.getElementById('naderElem').style.top = String(topPx) + "px";
+        rightC = 100 * (rightPx / window.innerWidth);
+        topC = 100 * (topPx / window.innerHeight);
+    };
+    isDragging = true;
+}
+
+function notDragging() {
+    if (dragging) {
+        document.getElementsByTagName('BODY')[0].onmousemove = function() {};
+        moveNader();
+        isDragging = false;
+    }
+}
+
+
+var topC = 0;
+var rightC = 0;
+var goingDown = false;
+var goingRight = false;
+var rotC = 0;
+var rotClock = true;
+
+function loadedBro() {
+    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+        changeBg();
+    }
+    nad = document.getElementById('naderElem');
+    
+    nad.style.top = percenter(topC);
+    rotateNader();
+    moveNader();
+}
+</script>
+
+</head>
+<body onload="loadedBro()" onclick="changeBg()">
+
+
+
+<img id="naderElem" src="nader_t.gif" style="position: fixed; height: 20%;" ondragstart="return false;" onmousedown="dragging()" onmouseup="notDragging()" />
+
+<audio autoplay="" loop="" src="21 Fantasy Bossa.mp3"></audio>
+
+
+</body>
+</html>
