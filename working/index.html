@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <img id='me' height="500" src="http://www.petsworld.in/blog/wp-content/uploads/2014/09/cat.jpg" />
+    <img id='me2' height="500" src="http://www.petsworld.in/blog/wp-content/uploads/2014/09/cat.jpg" />
+    <img id='me3' height="500" src="http://www.petsworld.in/blog/wp-content/uploads/2014/09/cat.jpg" />
+
+    <script>
+
+        function backgroundChange() {
+            document.body.style.backgroundColor = "rgb(" + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + ", " + Math.floor(Math.random() * 255) + ")";
+        }
+        setInterval(backgroundChange, 500);
+
+        function otherClickHandler() {
+            document.getElementById("numberDisplay").innerHTML = Math.floor(Math.random() * 99);
+        }
+
+
+        function clickHandler() {
+            document.getElementById("me").style.left = Math.floor(Math.random() * (window.innerWidth - 300)) + "px";
+            document.getElementById("me").style.top = Math.floor(Math.random() * (window.innerHeight - 500)) + "px";
+        }
+
+        setInterval(clickHandler, 5);
+
+        function clickHandler2() {
+            document.getElementById("me2").style.left = Math.floor(Math.random() * (window.innerWidth - 300)) + "px";
+            document.getElementById("me2").style.top = Math.floor(Math.random() * (window.innerHeight - 500)) + "px";
+        }
+
+        setInterval(clickHandler2, 5);
+
+        function clickHandler3() {
+            document.getElementById("me3").style.left = Math.floor(Math.random() * (window.innerWidth - 300)) + "px";
+            document.getElementById("me3").style.top = Math.floor(Math.random() * (window.innerHeight - 500)) + "px";
+        }
+
+        setInterval(clickHandler3, 5);
+
+        document.getElementById('clicker').onclick = otherClickHandler;
+
+        document.getElementById("me").style.position = "absolute";
+        document.getElementById("me2").style.position = "absolute";
+        document.getElementById("me3").style.position = "absolute";
+    </script>
+
+    <!--
+    <img id="img1" width="200" />
+    <script>
+        document.getElementById('img1').src = "images/feelsweirdman.png"
+
+        answer = parseInt(prompt("What is 4 + 5?"));
+        if (answer === 9) {
+            document.getElementsByTagName('BODY')[0].style.backgroundColor = "lightgreen";
+            document.getElementById('img1').src = "images/feelsgoodman.png"
+            let sum = 0;
+            for (let i = 105; i <= 350; i += 7) {
+                sum += i
+            }
+            document.getElementsByTagName('BODY')[0].innerHTML += "<br /><p>The sum of all numbers in [100, 350] divisible by 7 is " + String(sum) + "</p>";
+        } else {
+            document.getElementsByTagName('BODY')[0].style.backgroundColor = "salmon";
+            document.getElementById('img1').src = "images/feelsbadman.png"
+            let sum = 0;
+            for (let i = 100; i <= 350; i += 5) {
+                sum += i
+            }
+            document.getElementsByTagName('BODY')[0].innerHTML += "<br /><p>The sum of all numbers in [100, 350] divisible by 5 is " + String(sum) + "</p>";
+        }
+
+        let stooges = []
+        console.log(stooges);
+        console.log(stooges.length);
+
+        stooges[0] = "Larry";
+        console.log(stooges);
+        console.log(stooges.length);
+
+        stooges[1] = "Moe";
+        console.log(stooges);
+        console.log(stooges.length);
+
+        stooges[4] = "Curly";
+        console.log(stooges);
+        console.log(stooges.length);
+
+        stooges[4] = "Shemp";
+        console.log(stooges);
+        console.log(stooges.length);
+
+        for (let i = 0; i < stooges.length; i++) {
+            console.log(stooges[i]);
+        }
+
+        let numbersList = [74, 44, 77, 91, 123, 1393, 1369, 119, 873, 972]
+        for (let i = 0; i < numbersList.length; i++) {
+            console.log((numbersList[i] % 7 == 0) ? numbersList[i] : "")
+        }
+
+        function calcArithSum(num) {
+            return (num * (1 + num) / 2);
+        }
+
+        function displaySum(sumToDisplay, num) {
+            console.log("The sum of the arithmetic series from 1 to " + String(num) + " is " + String(sumToDisplay));
+        }
+
+        displaySum(calcArithSum(10), 10);
+        console.log(2 * 3, 2 + 3)
+    </script>
+    -->
+</body>
+</html>
