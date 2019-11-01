@@ -27,29 +27,24 @@
             document.getElementById("numberDisplay").innerHTML = Math.floor(Math.random() * 99);
         }
 
-
         function clickHandler() {
             document.getElementById("me").style.left = Math.floor(Math.random() * (window.innerWidth - 300)) + "px";
             document.getElementById("me").style.top = Math.floor(Math.random() * (window.innerHeight - 500)) + "px";
         }
-
-        setInterval(clickHandler, 5);
 
         function clickHandler2() {
             document.getElementById("me2").style.left = Math.floor(Math.random() * (window.innerWidth - 300)) + "px";
             document.getElementById("me2").style.top = Math.floor(Math.random() * (window.innerHeight - 500)) + "px";
         }
 
-        setInterval(clickHandler2, 5);
-
         function clickHandler3() {
             document.getElementById("me3").style.left = Math.floor(Math.random() * (window.innerWidth - 300)) + "px";
             document.getElementById("me3").style.top = Math.floor(Math.random() * (window.innerHeight - 500)) + "px";
         }
 
+        setInterval(clickHandler, 5);
+        setInterval(clickHandler2, 5);
         setInterval(clickHandler3, 5);
-
-        document.getElementById('clicker').onclick = otherClickHandler;
 
         document.getElementById("me").style.position = "absolute";
         document.getElementById("me2").style.position = "absolute";
