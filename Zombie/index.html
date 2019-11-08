@@ -106,7 +106,7 @@
 
         function killZombie(event) {
             let oldLength = zombies.length;
-            let fireSound = new Audio('src/fire.wav');
+            let fireSound = new Audio('src/Fire.wav');
             fireSound.play();
             for (let i = 0; i < zombies.length; i++) {
                 let xDiff = zombies[i].style.left.replace('px', '') - event.clientX;
@@ -120,7 +120,7 @@
                     delete zombies[i];
                     points++;
                     updatePoints();
-                    let deathSound = new Audio('src/death.wav');
+                    let deathSound = new Audio('src/Death.wav');
                     deathSound.play();
                 }
             }

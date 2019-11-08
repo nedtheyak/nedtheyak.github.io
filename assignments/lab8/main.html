@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script id="partA">
+        function generateButtons(buttonCount) {
+            buttonCount = (buttonCount > 26) ? 26 : buttonCount
+            for (let i = 0; i < buttonCount; i++) {
+                let newButton = document.createElement('BUTTON');
+                newButton.innerHTML = String.fromCharCode(65 + i);
+                newButton.onclick = function () { console.log("Button " + this.innerHTML + " was clicked.") };
+                document.body.appendChild(newButton);
+            }
+        }
+    </script>
+
+    <script id="partB">
+        function recipe(title, servings, ingredients)
+    </script>
+</body>
+</html>
