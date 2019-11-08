@@ -35,11 +35,11 @@ input {
 
 body {
     background-color: midnightblue;
+    overflow: hidden;
 }
 
 * {
     user-select: none;
-    overflow: hidden;
 }
 
 @keyframes deathAnim {
