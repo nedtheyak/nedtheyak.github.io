@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zombies! | Kayden</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+    <h1 id="pointsDisplay">Points: 0</h1>
+    <h2 id="highScoreDisplay">High Score: 0</h2>
+    <h3 id="multiKillDisplay"></h3>
+
+
+    <input id="resetButton" type="button" value="Reset Game" />
+
+    <script>
+        let zombies = [];
+        let zombieCreationInterval;
+        let zombieRandomizationInterval;
+        let points = 0;
+        let highScore = 0;
+        let multiKillClear;
+
+        function updatePoints() {
+            document.getElementById('pointsDisplay').innerHTML = "Points: " + points;
+            if (points > highScore) {
+                highScore = points;
+                document.getElementById('highScoreDisplay').innerHTML = "High Score: " + points;
+                document.getElementById('pointsDisplay').className = "highscore";
+            }
+        }
+
+        function createZomb() {
+            let newZombie = document.createElement("IMG");
+            newZombie.src = "images/zombie.png";
+            newZombie.style.width = "100px";
+            newZombie.style.position = "absolute";
+            newZombie.style.left = Math.floor(Math.random() * (window.innerWidth - 100)) + "px";
+            newZombie.style.top = Math.floor(Math.random() * (window.innerHeight - 100)) + "px";
+            newZombie.onclick = function (e) { killZombie(e) };
+            newZombie.ondragstart = function () { return false };
+            newZombie.zombIndex = zombies.length;
+            document.body.appendChild(newZombie);
+            zombies.push(newZombie);
+        }
+
+        function randomizeZombs() {
+            for (let i = 0; i < zombies.length; i++) {
+                zombies[i].style.left = Math.floor(Math.random() * (window.innerWidth - 100)) + "px";
+                zombies[i].style.top = Math.floor(Math.random() * (window.innerHeight - 100)) + "px";
+            }
+        }
+
+        function checkMultiKill(kills) {
+            switch (kills) {
+                case 1:
+                    break;
+                case 2:
+                    clearTimeout(multiKillClear);
+                    document.getElementById('multiKillDisplay').innerHTML = "Double Kill!";
+                    let doubleKillSound = new Audio('src/DoubleKill.mp3');
+                    doubleKillSound.play();
+                    multiKillClear = setTimeout(function () {
+                        document.getElementById('multiKillDisplay').innerHTML = "";
+                    }, 3000);
+                    break;
+                case 3:
+                    clearTimeout(multiKillClear);
+                    document.getElementById('multiKillDisplay').innerHTML = "Triple Kill!";
+                    let tripleKillSound = new Audio('src/TripleKill.mp3');
+                    tripleKillSound.play();
+                    multiKillClear = setTimeout(function () {
+                        document.getElementById('multiKillDisplay').innerHTML = "";
+                    }, 3000);
+                    break;
+                case 4:
+                    clearTimeout(multiKillClear);
+                    document.getElementById('multiKillDisplay').innerHTML = "Mega Kill!";
+                    let megaKillSound = new Audio('src/MegaKill.mp3');
+                    megaKillSound.play();
+                    multiKillClear = setTimeout(function () {
+                        document.getElementById('multiKillDisplay').innerHTML = "";
+                    }, 3000);
+                    break;
+                case 5:
+                    clearTimeout(multiKillClear);
+                    document.getElementById('multiKillDisplay').innerHTML = "Ultra Kill!";
+                    let ultraKillSound = new Audio('src/UltraKill.mp3');
+                    ultraKillSound.play();
+                    multiKillClear = setTimeout(function () {
+                        document.getElementById('multiKillDisplay').innerHTML = "";
+                    }, 3000);
+                    break;
+                default:
+                    clearTimeout(multiKillClear);
+                    document.getElementById('multiKillDisplay').innerHTML = "Monster Kill!";
+                    let monsterKillSound = new Audio('src/MonsterKill.mp3');
+                    monsterKillSound.play();
+                    multiKillClear = setTimeout(function () {
+                        document.getElementById('multiKillDisplay').innerHTML = "";
+                    }, 3000);
+                    break;
+            }
+        }
+
+
+        function killZombie(event) {
+            let oldLength = zombies.length;
+            let fireSound = new Audio('src/fire.wav');
+            fireSound.play();
+            for (let i = 0; i < zombies.length; i++) {
+                let xDiff = zombies[i].style.left.replace('px', '') - event.clientX;
+                let yDiff = zombies[i].style.top.replace('px', '') - event.clientY;
+                if (xDiff < 0 && Math.abs(xDiff) < 100 && yDiff < 0 && Math.abs(yDiff) < 100) {
+                    zombies[i].className = "dying";
+                    zombies[i].onclick = function () { };
+                    zombies[i].addEventListener("animationend", function () {
+                        this.remove();
+                    });
+                    delete zombies[i];
+                    points++;
+                    updatePoints();
+                    let deathSound = new Audio('src/death.wav');
+                    deathSound.play();
+                }
+            }
+            zombies = zombies.filter(Boolean);
+            checkMultiKill(oldLength - zombies.length);
+            if (!zombies.length) {
+                createZomb();
+            }
+        }
+
+        function startGame() {
+            let newZombie = document.createElement("IMG");
+            newZombie.src = "images/zombie.png";
+            newZombie.style.width = "100px";
+            newZombie.style.position = "absolute";
+            newZombie.style.left = window.innerWidth / 2 - 50 + "px";
+            newZombie.style.top = window.innerHeight / 2 - 50 + "px";
+            newZombie.onclick = function (e) { killZombie(e) };
+            newZombie.ondragstart = function () { return false };
+            document.body.appendChild(newZombie);
+            zombies.push(newZombie);
+            zombieCreationInterval = setInterval(createZomb, 2000);
+            zombieRandomizationInterval = setInterval(randomizeZombs, 2000);
+        }
+
+        function restartGame() {
+            clearInterval(zombieCreationInterval);
+            clearInterval(zombieRandomizationInterval);
+            for (let i = 0; i < zombies.length; i++) {
+                zombies[i].remove();
+                delete zombies[i];
+            }
+            zombies = zombies.filter(Boolean);
+            alert(`You scored ${points} point` + ((points == 1) ? "!" : "s!"));
+            points = 0;
+            updatePoints();
+            document.getElementById('pointsDisplay').className = "";
+            startGame();
+        }
+
+        document.getElementById('resetButton').onclick = restartGame;
+
+        startGame();
+    </script>
+</body>
+</html>
