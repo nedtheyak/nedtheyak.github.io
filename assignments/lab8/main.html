@@ -19,7 +19,24 @@
     </script>
 
     <script id="partB">
-        function recipe(title, servings, ingredients)
+        function recipe(title, serves, ingredients) {
+            this.title = title;
+            this.serves = serves;
+            this.ingredients = ingredients;
+            this.print = function (nOfServings) {
+                document.write("<ul>");
+                document.write("<li>Title: " + title + "</li>");
+                document.write("<li>Serves: " + serves * nOfServings + "</li>");
+                document.write("<li>Ingredients: </li>");
+                for (let i = 0; i < ingredients.length; i++) {
+                    document.write("<li>" + ingredients[i] + "</li>")
+                }
+                document.write("</ul>");
+            }
+        }
+
+        let myObj = new recipe('GhirmehSabzi', 1, ['cinnamon', 'lettuce', 'onion']);
+        myObj.print(2);
     </script>
 </body>
 </html>
