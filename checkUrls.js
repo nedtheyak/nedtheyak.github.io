@@ -24,6 +24,7 @@ function redirectUsing(given) {
         case "bcit/comp1536/zombie":
             newUrl = "https://kydn.me/Zombie"
             break;
+        case "bcit/comp1536/assignments/lab8/main.html":
         case "bcit/comp1536/assignments/lab8":
         case "assignments/lab8":
             newUrl = "https://kydn.me/assignments/lab8/main.html";
@@ -32,6 +33,6 @@ function redirectUsing(given) {
             newUrl = "";
             break;
     }
-    console.log(newUrl);
+    
     return newUrl;
 }
