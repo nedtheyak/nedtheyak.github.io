@@ -39,6 +39,7 @@ body {
 
 * {
     user-select: none;
+    overflow: hidden;
 }
 
 @keyframes deathAnim {
