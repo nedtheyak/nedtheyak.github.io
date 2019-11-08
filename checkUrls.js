@@ -32,6 +32,6 @@ function redirectUsing(given) {
             newUrl = "";
             break;
     }
-
+    console.log(newUrl)
     return newUrl;
 }
