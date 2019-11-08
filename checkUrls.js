@@ -15,10 +15,14 @@ function redirectUsing(given) {
             break;
         case "h":
         case "home":
-            newUrl = "http://kydn.me"
+            newUrl = "https://kydn.me"
             break;
         case "calc":
             newUrl = "https://kaydenlukeschmidt.wixsite.com/website"
+            break;
+        case "bcit/comp1536/Zombie":
+        case "bcit/comp1536/zombie":
+            newUrl = "https://kydn.me/Zombie"
             break;
         default:
             newUrl = "";
