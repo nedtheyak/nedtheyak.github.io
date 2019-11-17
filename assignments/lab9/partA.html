@@ -21,16 +21,12 @@
         #warnings {
             background-color: yellow;
         }
-
-        input:out-of-range {
-            background-color: red;
-        }
     </style>
 </head>
 <body>
 
     <p>How many buttons should be created?</p>
-    <input id="buttonInput" type="number" placeholder="Number of buttons..." min="5" max="100" />
+    <input id="buttonInput" type="text" placeholder="Number of buttons..." />
     <button id="goButton" type="button">Go!</button>
     <p id="warnings"></p>
 
