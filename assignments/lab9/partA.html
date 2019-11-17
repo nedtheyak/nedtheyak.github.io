@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Lab 09 | Kayden</title>
+    <style>
+        button.random {
+            position: absolute;
+            display: block;
+            width: 10em;
+            height: 5em;
+            z-index: -1;
+        }
+
+        * {
+            font-size: 16px;
+            overflow: hidden;
+        }
+
+        #warnings {
+            background-color: yellow;
+        }
+
+        input:out-of-range {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <p>How many buttons should be created?</p>
+    <input id="buttonInput" type="number" placeholder="Number of buttons..." min="5" max="100" />
+    <button id="goButton" type="button">Go!</button>
+    <p id="warnings"></p>
+
+    <script id="partA">
+        let buttons = [];
+
+        function randomizePosition(button) {
+            button.left = Math.floor(Math.random() * (window.innerWidth - 160)) + "px";
+            button.top = Math.floor(Math.random() * (window.innerHeight - 80)) + "px";
+            button.element.style.top = button.top;
+            button.element.style.left = button.left;
+        }
+
+        function RandomButton() {
+            let newButton = document.createElement('BUTTON');
+            newButton.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+            newButton.className = "random";
+            this.element = newButton;
+            randomizePosition(this);
+            newButton.style.top = this.top;
+            newButton.style.left = this.left;
+            document.body.appendChild(newButton);
+        }
+         
+        function randomizeButtons() {
+            buttons.forEach(randomizePosition);
+        }
+
+        function createButtons() {
+            let buttonCountInput = document.getElementById('buttonInput').value;
+            let buttonCount = parseInt(buttonCountInput);
+            if (parseInt(buttonCount) >= 5 && parseInt(buttonCount) <= 100) {
+                for (let i = 0; i < buttonCount; i++) {
+                    buttons.push(new RandomButton);
+                }
+                document.getElementById('warnings').innerHTML = "";
+            } else if (isNaN(buttonCountInput)) {
+                document.getElementById('warnings').innerHTML = "That's not a number.";
+            } else {
+                document.getElementById('warnings').innerHTML = "Please enter a value.";
+            }
+        }
+
+        document.getElementById('goButton').onclick = createButtons;
+        setInterval(randomizeButtons, 2000);
+    </script>
+</body>
+</html>

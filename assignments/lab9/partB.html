@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Lab 09 | Kayden</title>
+    <style>
+        button.random {
+            font-size: 5px;
+            position: absolute;
+            display: block;
+            width: 10em;
+            height: 5em;
+        }
+
+        button.toRandom {
+            font-size: 5px;
+            position: relative;
+            width: 10em;
+            height: 5em;
+            margin: 0.5em;
+        }
+
+        * {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <p>How many buttons should be created?</p>
+    <input id="buttonInput" type="text" placeholder="Number of buttons..." value="10" />
+    <button id="goButton" type="button">Go!</button>
+    <p id="messages"></p>
+
+    <script id="partB">
+        let buttons = [];
+        let currentClickCount = 0;
+
+        function randomizePosition(button) {
+            button.element.style.top = button.top;
+            button.element.style.left = button.left;
+            button.element.className = "random";
+        }
+
+        function RandomButton(number) {
+            let newButton = document.createElement('BUTTON');
+            newButton.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
+            newButton.className = "toRandom";
+            newButton.number = number;
+            newButton.innerHTML = number;
+            this.left = Math.floor(Math.random() * (window.innerWidth - 160)) + "px";
+            this.top = Math.floor(Math.random() * (window.innerHeight - 80)) + "px";
+            this.element = newButton;
+            document.body.appendChild(newButton);
+        }
+
+        function clickHandler(event) {
+            if (currentClickCount === event.target.number) {
+                delete buttons[event.target.number];
+                event.target.remove();
+                currentClickCount++;
+                document.getElementById('messages').innerHTML = "";
+                if (currentClickCount === buttons.length) {
+                    document.getElementById('messages').style.backgroundColor = "white";
+                    document.getElementById('messages').innerHTML = "Excellent memory!";
+                    buttons = buttons.filter(Boolean);
+                    currentClickCount = 0;
+                }
+            } else {
+                document.getElementById('messages').style.backgroundColor = "yellow";
+                document.getElementById('messages').innerHTML = "Wrong order!";
+            }
+        }
+
+        function scatter() {
+            buttons.forEach(function (button) {
+                randomizePosition(button);
+                button.element.onclick = function (e) { clickHandler(e) };
+            });
+        }
+
+        function createButtons() {
+            let buttonCountInput = document.getElementById('buttonInput').value;
+            let buttonCount = parseInt(buttonCountInput);
+            if (parseInt(buttonCount) >= 5 && parseInt(buttonCount) <= 100) {
+                for (let i = 0; i < buttonCount; i++) {
+                    buttons.push(new RandomButton(buttons.length));
+                }
+                document.getElementById('messages').innerHTML = "";
+            } else if (isNaN(buttonCountInput)) {
+                document.getElementById('messages').style.backgroundColor = "yellow";
+                document.getElementById('messages').innerHTML = "That's not a number.";
+            } else {
+                document.getElementById('messages').style.backgroundColor = "yellow";
+                document.getElementById('messages').innerHTML = "Please enter a value.";
+            }
+            setTimeout(scatter, 2000);
+        }
+        
+
+        document.getElementById('goButton').onclick = createButtons;
+    </script>
+</body>
+</html>
