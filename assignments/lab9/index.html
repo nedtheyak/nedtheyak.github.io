@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Lab 9 | Kayden</title>
+
+    <style>
+        table {
+            width: 100%;
+        }
+
+        td {
+            width: 50%;
+            text-align: center;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #partA {
+            background-color: powderblue;
+        }
+
+        #partB {
+            background-color: cyan;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kayden's COMP 1536 Lab 9</h1>
+    <table>
+        <tr>
+            <td id="partA" onclick="partay()">Part A</td>
+            <td id="partB" onclick="partB()">Part B</td>
+        </tr>
+    </table>
+
+    <script>
+        function partay() {
+            window.open("https://kydn.me/assignments/lab9/partA.html");
+        }
+
+        function partB() {
+            window.open("https://kydn.me/assignments/lab9/partB.html");
+        }
+
+        document.getElementsByTagName('TABLE')[0].style.height = String(window.innerHeight - document.body.clientHeight) + "px";
+    </script>
+</body>
+</html>
