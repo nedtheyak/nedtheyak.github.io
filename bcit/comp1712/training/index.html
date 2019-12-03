@@ -22,25 +22,112 @@
         }
 
         body {
-            background: #c0e6ec linear-gradient(white, #c0e6ec) repeat-x;
+            background-image: url('images/kale-salad.jpg');
+            background-repeat: repeat;
         }
 
-        h1, h2 {
+        h1 {
             text-align: center;
-            font-family: "KG Second Chances Sketch"
+            font-family: "KG Second Chances Sketch";
+        }
+
+        h2 {
+            text-align: center;
+            font-family: "KG Second Chances Sketch";
         }
 
         p {
             font-family: "KG Second Chances Solid";
             width: 40%;
         }
+
+        .wideImg {
+            width: 40%
+        }
+
+        .tallImg {
+            width: 20%
+        }
+
+        @media only screen and (max-width: 700px) {
+            .wideImg {
+                width: 100%
+            }
+
+            .tallImg {
+                display: block;
+                width: 75%;
+                margin: auto;
+            }
+
+            p {
+                font-family: "KG Second Chances Solid";
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 <body>
 
-<h1>This is an example header</h1>
-<p>This is an example paragraph</p>
+<h1>Getting Started with Studio One 2</h1>
+<p>Studio One 2 is a very powerful Digital Audio Workstation with many features, but it can be daunting to jump in and
+    start creating music, with how complex the software appears. The goal of this course is to get you up and running,
+    ready to create.</p>
 
+
+<h2>Step 1</h2>
+<p>First, plug in all of your midi/recording devices, then start up Studio One 2.
+    You'll need to open up a new song. Do this by clicking through the song setup wizard.</p>
+<img src="images/step1_1.PNG"  alt="Step 1.1" class="wideImg" />
+<p>In the window that opens, you'll find you can select a preset on the left (if you wish), but for the
+    purposes of this tutorial we'll stick with an empty song.<br />You may also set the name, tempo, and time
+    signature here.</p>
+<img src="images/step1_2.png"  alt="Step 1.2" class="tallImg" />
+
+<h2>Step 2</h2>
+<p>Now that you have your song file open, you may find that there are many ways to start. Here, we'll walk through
+    each of them. Start by clicking the "Add Track" button, pictured below.</p>
+<img src="images/step2_1.png"  alt="Step 2.1" class="wideImg" />
+<p>Next, give your track a name, and choose what type you want. You'll probably want either Instrument or Audio.</p>
+<img src="images/step2_2.png"  alt="Step 2.2" class="tallImg" />
+
+<h2>Step 3 - Audio</h2>
+<p>If you've selected an audio track, you should be ready to go! Just click record, and get recording! If things
+    don't work, make sure the buttons highlighted below have been enabled.</p>
+<img src="images/step3_1.png"  alt="Step 3.1" class="wideImg" />
+<h2>Step 3 - Instrument</h2>
+<p>If you've selected an instrument track, there is a bit of setup required. You need to select a virtual instrument.
+You can do this by selecting "Instruments" from the right hand panel...</p>
+<img src="images/step3_2.png"  alt="Step 3.2" class="wideImg" />
+<p>...and dragging your desired instrument to the track.</p>
+<img src="images/step3_3.png"  alt="Step 3.3" class="wideImg" />
+<p>Once you have your instrument, you can record using a midi controller if you have one (it will work the same way
+as recording to an audio track - see above), or you can double-click on the track and drag the end of the
+created event to make it longer...</p>
+<img src="images/step3_4.png"  alt="Step 3.4" class="wideImg" />
+<p>...and double-click the event to open the "edit" window. In the edit window, you can use the cursor tool (press 1)
+to allow double-clicking to add or remove notes, or you can use the 6 custom tools highlighted below
+for their (self-explanatory) purposes.</p>
+<img src="images/step3_5.png"  alt="Step 3.5" class="wideImg" />
+
+<h2>Exporting</h2>
+<p>Once you have your track assembled, you will want to export it to an audio file. Do this by opening the marker track...</p>
+<img src="images/step4_1.png"  alt="Step 4.1" class="wideImg" />
+<p>...moving your "Start" and "End" markers to their corresponding spots in your track (you may have to scroll
+awhile to find them)...</p>
+<img src="images/step4_2.png"  alt="Step 4.2" class="wideImg" />
+<p>Next, navigate to song->Export Mixdown...</p>
+<img src="images/step4_3.png"  alt="Step 4.3" class="wideImg" />
+<p>...select "Between Song Start/End Marker", and optionally rename the file at the top of the window and/or select a
+different file location. You can also optionally change your export file format. When you're ready, hit "Ok" to export.</p>
+<img src="images/step4_4.png"  alt="Step 4.4" class="tallImg" />
+
+<h2>Conclusion</h2>
+<p>Congratulations! You now know the basics of creating a Studio One 2 song! If you need more help, you can press
+Alt+F1 within Studio One 2 to open the reference manual, or use the online
+<a href="https://forums.presonus.com/">Presonus forums</a> to help you. Enjoy your music-making!</p>
+<img src="images/studio_one.jpg"  alt="Studio One Logo" class="wideImg" />
 
 </body>
 </html>
