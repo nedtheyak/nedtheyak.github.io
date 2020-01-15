@@ -1,7 +1,3 @@
----
-permalink: /404.html
----
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,20 +12,20 @@ p {
     font-family: sans-serif;
 }
 </style>
-<script src="https://kydn.me/checkUrls.js"></script>
+<script src="https://kaydens.ca/checkUrls.js"></script>
 <script>
 function checkForRedirect() {
 	var curUrl = "";
 
 	curUrl = window.location.href;
-	curUrl = curUrl.replace("https://kydn.me/", "");
+	curUrl = curUrl.replace("https://kaydens.ca/", "");
 
 	newUrl = redirectUsing(curUrl);
 
 	if (newUrl != "") {
 		window.open(newUrl, '_self');
 	} else {
-        document.getElementById('bod').innerHTML = '<h1>404 Error</h1><br /><p>You may want to go back to the <a href="http://kydn.me">homepage</a></p>';
+        document.getElementById('bod').innerHTML = '<h1>404 Error</h1><br /><p>You may want to go back to the <a href="http://kaydens.ca">homepage</a></p>';
 	}
 }
 
@@ -41,7 +37,7 @@ function checkForRedirect() {
 
 <h1>Loading...</h1>
 <br />
-<p><a href="http://kydn.me">Go home</a></p>
+<p><a href="http://kaydens.ca">Go home</a></p>
 
 
 </body>
