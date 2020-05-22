@@ -1,6 +1,6 @@
-import { GameUI } from "../scenes/GameUI.js";
-import { GameVirtualController } from "../scenes/GameVirtualController.js";
-import {PostRoundScene} from "../scenes/PostRoundScene.js"
+import { GameUI } from "https://covid-royale.westus.cloudapp.azure.com/scenes/GameUI.js";
+import { GameVirtualController } from "https://covid-royale.westus.cloudapp.azure.com/scenes/GameVirtualController.js";
+import {PostRoundScene} from "https://covid-royale.westus.cloudapp.azure.com/scenes/PostRoundScene.js"
 var map_items = new Array;
 var pickUpSounds = new Array;
 var soundConfig = {
