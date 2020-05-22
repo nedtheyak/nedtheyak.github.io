@@ -1,10 +1,10 @@
-import {LoadScene} from "../scenes/LoadScene.js"
-import {MenuScene} from "../scenes/MenuScene.js"
-import {LobbyScene} from "../scenes/LobbyScene.js"
+import {LoadScene} from "https://covid-royale.westus.cloudapp.azure.com/scenes/LoadScene.js"
+import {MenuScene} from "https://covid-royale.westus.cloudapp.azure.com/scenes/MenuScene.js"
+import {LobbyScene} from "https://covid-royale.westus.cloudapp.azure.com/scenes/LobbyScene.js"
 import {GameScene} from "https://kaydens.ca/files/scenes/GameScene.js"
-import {GameUI} from "../scenes/GameUI.js"
-import {GameVirtualController} from "../scenes/GameVirtualController.js"
-import {PostRoundScene} from "../scenes/PostRoundScene.js"
+import {GameUI} from "https://covid-royale.westus.cloudapp.azure.com/scenes/GameUI.js"
+import {GameVirtualController} from "https://covid-royale.westus.cloudapp.azure.com/scenes/GameVirtualController.js"
+import {PostRoundScene} from "https://covid-royale.westus.cloudapp.azure.com/scenes/PostRoundScene.js"
 // Config game
 const config = {
     type: Phaser.AUTO,
