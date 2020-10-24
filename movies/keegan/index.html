@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html>
-<body onload="myCanvas()">
+<head>
+<title>Keegan hasn't seen movies</title>
+</head>
+<body onload="myCanvas()" style="text-align: center">
 
-<label for="movieName">Movie Name: </label><input id="movieName" onchange="myCanvas()" /><button type="submit">Go</button>
+<br />
+<br />
+<br />
+<p><label for="movieName">Movie Name: </label><input id="movieName" onkeyup="myCanvas()" /></p>
 
 <img style="display: none" id="ticket" src="movieTicket.png" alt="Movie Ticket" width="500" height="300">
+<br />
 
 <canvas id="myCanvas" width="500" height="300">
 Your browser does not support the HTML canvas tag.</canvas>
 
 <script>
+let c = document.getElementById("myCanvas");
+let ctx = c.getContext("2d");
+let img = document.getElementById("ticket");
+let movieNameText = "";
+let movieNameFontSize = 30;
+
 function myCanvas() {
-  var c = document.getElementById("myCanvas");
-  var ctx = c.getContext("2d");
-  var img = document.getElementById("ticket");
-  var movieNameText = document.getElementById('movieName').value;
-  ctx.drawImage(img,0,0, 500, 300);
+  movieNameText = document.getElementById('movieName').value;
+  
+  ctx.clearRect(0, 0, c.width, c.height);
+  
+  ctx.drawImage(img, 0, 0, c.width, c.height);
   ctx.textAlign = "center";
-  ctx.font = "30px 'Comic Sans MS'";
-  ctx.fillText(movieNameText,c.width/2,c.height/2 + 28);
+  movieNameLengthDiff = movieNameText.length - 23;
+  movieNameFontSize = (movieNameLengthDiff > 0) ? 30 - (movieNameLengthDiff) / 2 : 30;
+  ctx.font = String(movieNameFontSize) + "px 'Comic Sans MS'";
+  ctx.fillText(movieNameText, c.width / 2, (c.height / 2) + 28);
 }
 </script>
 
