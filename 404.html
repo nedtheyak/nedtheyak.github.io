@@ -41,6 +41,7 @@ function checkForRedirect() {
 	
 	let redirectUrl = redirectUsing(window.location.pathname);
 	if (redirectUrl != "") {
+		document.getElementById('pageTitle').innerHTML = "Redirecting...";
 		if (!arrivedUsingArrows) {
 			window.open(redirectUrl, '_self', '', false);
 		} else {
