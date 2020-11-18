@@ -42,7 +42,7 @@ function checkForRedirect() {
 	let redirectUrl = redirectUsing(window.location.pathname);
 	if (redirectUrl != "") {
 		if (!arrivedUsingArrows) {
-			window.open(redirectUrl, '_self');
+			window.open(redirectUrl, '_self', '', false);
 		} else {
 			document.body.innerHTML = '<h1>Redirects to ' + redirectUrl + '</h1><br /><p><a href="' + redirectUrl + '">Click here</a> to go to ' + redirectUrl + '</p>';
 		}
