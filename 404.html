@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>404 Error</title>
+<meta charset="utf-8" />
+<title id="pageTitle">Loading...</title>
 
 <style>
 h1 {
@@ -15,17 +16,39 @@ p {
 <script src="https://kaydens.ca/checkUrls.js"></script>
 <script>
 function checkForRedirect() {
-	var curUrl = "";
-
-	curUrl = window.location.href;
-	curUrl = curUrl.replace("https://kaydens.ca/", "");
-
-	newUrl = redirectUsing(curUrl);
-
-	if (newUrl != "") {
-		window.open(newUrl, '_self');
+	// Don't redirect if they arrived using "Back" or "Forward" buttons
+	let arrivedUsingArrows = false;
+	let navEntries = [];
+	try {
+		navEntries = performance.getEntriesByType("navigation");
+		for (let i = 0; i < navEntries.length; i++) {
+			if (navEntries[i].type === "back_forward") {
+				arrivedUsingArrows = true;
+			}
+		}
+	} catch (e) {
+		console.error(e);
+	}
+	if (!arrivedUsingArrows) {
+		try {
+			if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
+				arrivedUsingArrows = true;
+			}
+		} catch (e) {
+			console.error(e);
+		}
+	}
+	
+	let redirectUrl = redirectUsing(window.location.pathname);
+	if (redirectUrl != "") {
+		if (!arrivedUsingArrows) {
+			window.open(redirectUrl, '_self');
+		} else {
+			document.body.innerHTML = '<h1>Redirects to ' + redirectUrl + '</h1><br /><p><a href="' + redirectUrl + '">Click here</a> to go to ' + redirectUrl + '</p>';
+		}
 	} else {
-        document.getElementById('bod').innerHTML = '<h1>404 Error</h1><br /><p>You may want to go back to the <a href="http://kaydens.ca">homepage</a></p>';
+        document.body.innerHTML = '<h1>404 Error</h1><br /><p>You may want to go back to the <a href="http://kaydens.ca">homepage</a></p>';
+		document.getElementById('pageTitle').innerHTML = "404 Error";
 	}
 }
 
@@ -33,7 +56,7 @@ function checkForRedirect() {
 
 </head>
 
-<body id="bod" onload="checkForRedirect()">
+<body onload="checkForRedirect()">
 
 <h1>Loading...</h1>
 <br />
