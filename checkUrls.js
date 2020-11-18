@@ -7,6 +7,13 @@ function redirectUsing(given) {
         case "/home":
             newUrl = "https://kaydens.ca"
             break;
+		case "/d":
+		case "/dress":
+		case "/dressember":
+		case "/dressember2020":
+		case "/december":
+			newUrl = "https://dressemberijm-2020.funraise.org/fundraiser/kayden-schmidt/";
+			break;
         case "/s":
         case "/slight":
             newUrl = "https://nedtheyak.itch.io/slight/";
