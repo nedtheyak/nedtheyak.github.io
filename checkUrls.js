@@ -2,7 +2,7 @@ var newUrl = "";
 var loadPage = true;
 
 function redirectUsing(given) {
-    switch (given) {
+    switch (given.replace(/\/+$/, "")) {
         case "/h":
         case "/home":
             newUrl = "https://kaydens.ca"
