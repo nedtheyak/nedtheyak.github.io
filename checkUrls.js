@@ -9,10 +9,9 @@ function redirectUsing(given) {
             break;
 		case "/d":
 		case "/dress":
-		case "/dressember":
 		case "/dressember2020":
 		case "/december":
-			newUrl = "https://dressemberijm-2020.funraise.org/fundraiser/kayden-schmidt/";
+			newUrl = "https://kaydens.ca/dressember";
 			break;
         case "/s":
         case "/slight":
