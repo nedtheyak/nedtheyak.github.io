@@ -2,7 +2,7 @@ var newUrl = "";
 var loadPage = true;
 
 function redirectUsing(given) {
-    switch (given.replace(/\/+$/, "")) {
+    switch (given.replace(/\/+$/, "").toLowerCase()) {
         case "/h":
         case "/home":
             newUrl = "https://kaydens.ca"
@@ -26,7 +26,6 @@ function redirectUsing(given) {
         case "/calc":
             newUrl = "https://kaydenlukeschmidt.wixsite.com/website"
             break;
-        case "/bcit/comp1536/Zombie":
         case "/bcit/comp1536/zombie":
             newUrl = "https://kaydens.ca/Zombie"
             break;
