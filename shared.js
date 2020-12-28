@@ -8,13 +8,17 @@ let pageList = {
 		text: "Dressember",
 		children: {
 			main: {
-				text: "Home",
+				text: "About",
 				href: "/dressember"
 			},
 			team: {
 				text: "Our Team",
 				href: "/dressember/team"
-			}
+			},
+			campaign: {
+				text: "Donate Now",
+				href: "/dressember/kayden"
+			},
 		}
 	},
 }
