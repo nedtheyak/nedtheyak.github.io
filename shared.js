@@ -25,7 +25,7 @@ let pageList = {
 
 function getLinkList(pages) {
 	let list = document.createElement('ul');
-	list.classList.add('nav', 'justify-content-right', 'pr-3');
+	list.classList.add('nav', 'justify-content-right', 'pr-1');
 	for (let key in pages) {
 		let item = document.createElement('li');
 		item.classList.add('nav-item');
