@@ -7,8 +7,8 @@ let pageList = {
 	dressember: {
 		text: "Dressember",
 		children: {
-			myPage: {
-				text: "My Page",
+			main: {
+				text: "Home",
 				href: "/dressember"
 			},
 			team: {
