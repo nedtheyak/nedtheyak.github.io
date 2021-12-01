@@ -11,21 +11,12 @@ function redirectUsing(given) {
 		case "/dress":
 		case "/dressember2020":
 		case "/december":
+                case "/tie":
 			newUrl = "https://kaydens.ca/dressember";
 			break;
 		case "/dress/amy":
 		case "/dressember/amy":
 			newUrl = "https://dressemberijm-2021.funraise.org/fundraiser/amy-forsyth/";
-			break;
-		case "/dress/ellie":
-		case "/dressember/ellie":
-		case "/dress/aurelia":
-		case "/dressember/aurelia":
-			newUrl = "https://dressemberijm-2021.funraise.org/fundraiser/aurelia-forsyth/";
-			break;
-		case "/dress/jason":
-		case "/dressember/jason":
-			newUrl = "https://dressemberijm-2021.funraise.org/fundraiser/jason-schmidt/";
 			break;
 		case "/dress/kayden":
 		case "/dressember/kayden":
