@@ -90,6 +90,7 @@
         if (newScore) {
             scores[team-1] = newScore;
         } else {
+            document.querySelector('#point').play();
             scores[team-1]++;
         }
 
@@ -151,6 +152,7 @@
 
 <audio id="countdown" src="countdown.mp3" style="display: none" onended="timerEnded()"></audio>
 <audio id="buzz" src="buzz.mp3" style="display: none"></audio>
+<audio id="point" src="point.mp3" style="display: none"></audio>
 <audio id="win" src="win.mp3" style="display: none"></audio>
 
 <div id="gameContainer">
