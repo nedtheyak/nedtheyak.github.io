@@ -38,6 +38,10 @@
         flex: 1 1 auto;
     }
 
+    .scoreButton {
+        font-size: inherit;
+    }
+
     #wordContainer {
         flex: 2 1 auto;
     }
@@ -154,7 +158,7 @@
         <table>
             <tr><th>Team 1</th><th>Team 2</th></tr>
             <tr><td id="teamOneScore">Loading...</td><td id="teamTwoScore">Loading...</td></tr>
-            <tr id="scoresActionsContainer" class="hidden"><td><button onclick="setScore(1)">+</button></td><td><button onclick="setScore(2)">+</button></td></span></tr>
+            <tr id="scoresActionsContainer" class="hidden"><td><button class="scoreButton" onclick="setScore(1)">+</button></td><td><button class="scoreButton" onclick="setScore(2)">+</button></td></span></tr>
         </table>
     </div>
     <div id="wordContainer" class="subcontainer">
