@@ -197,6 +197,7 @@
                 if (newWordsList.length > 0) {
                     words = newWordsList;
                     words.sort(randomizeCompare);
+                    document.querySelector('#wordsInputLabel').innerHTML = 'Loaded!';
                 }
                 console.log("New words list:", newWordsList);
             } catch (err) {
